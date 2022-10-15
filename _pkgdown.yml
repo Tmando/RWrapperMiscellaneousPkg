@@ -1,0 +1,174 @@
+reference:
+- title: "Hello World Example"
+  desc: >
+    A Hello World Example
+  contents: 
+  - hello_world
+- title: "Basic Arithmetic"
+  desc: >
+    A collection of Basic Arithmetic in Rust
+  contents: 
+  - add_num
+  - sub_num
+  - mul_num
+  - div_num
+  - mod_num
+- title: "Basic File Operation"
+  desc: >
+    A collection of basic file Operation function in Rust
+  contents: 
+  - read_file_to_string
+- title: "Bio Informatics Algorithms"
+  desc: >
+    A collection of Bio Informatic Algorithms 
+  contents: 
+  - levenshtein
+  - levenshtein_smid
+  - hamming_smid
+  - bom_matching
+  - bndm_matching
+  - horspool_matching
+  - kmp_matching
+  - hamming
+- title: "Crypto Algorithms"
+  desc: >
+    A collection of Crypto Algorithms
+  contents: 
+  - get_sha224
+  - get_sha256
+  - get_sha384
+  - get_sha512
+  - get_sha1
+- title: "Rust Faker"
+  desc: >
+    Basic Faker functions in Rust
+  contents:
+  - get_city
+  - get_country
+  - get_country_abr
+  - get_latitude
+  - get_longitude
+  - get_state
+  - get_street_name
+  - get_street_number
+  - get_street_prefix
+  - get_street_suffix
+  - get_zip
+  - get_anmimal
+  - get_cat
+  - get_dog
+  - get_farm
+  - get_pet_name
+  - get_alcohol
+  - get_blg
+  - get_hop
+  - get_ibu
+  - get_malt
+  - get_name
+  - get_style
+  - get_yeast
+  - get_bool
+  - get_full_color
+  - get_hex_color
+  - get_safe_color
+  - get_company
+  - get_buzzword
+  - get_bs
+  - get_company_suffix
+  - get_email
+  - get_phone
+  - get_phone_formatted
+  - get_currency_long
+  - get_currency_short
+  - get_day
+  - get_hour
+  - get_minute
+  - get_secound
+  - get_timezone
+  - get_week_day
+  - get_year
+  - get_extension
+  - get_mime_type
+  - get_abbreviation
+  - get_adjective
+  - get_ingverb
+  - get_street
+  - get_noun
+  - get_pharse
+  - get_verb
+  - get_hippster_word
+  - get_domain_name
+  - get_domain_suffix
+  - get_http_method
+  - get_ipv4_address
+  - get_ipv6_address
+  - get_mac_address
+  - get_username
+  - get_job_descriptor
+  - get_job_level
+  - get_job_title
+  - get_language_abbreviation
+  - get_language_programming
+  - get_language_random
+  - get_log_level_appache
+  - get_log_level_general
+  - get_log_level_sys_log
+  - get_full_name
+  - get_first_name
+  - get_last_name
+  - get_prefix_name
+  - get_suffix_name
+  - get_generate_password
+  - get_credit_card_type
+  - get_credit_card_number
+  - get_credit_card_luhn_number
+  - get_credit_card_exp
+  - get_credit_card_ccv
+  - get_status_codes_general
+  - get_status_codes_simple
+  - get_uuid_v1
+  - get_uuid_v4
+  - get_user_agent_chrome
+  - get_user_agent_firefox
+  - get_user_agent_linux_platform_token
+  - get_user_agent_mac_platform_token
+  - get_user_agent_opera
+  - get_user_agent_random_platform
+  - get_user_agent_safari
+  - get_user_agent_windows_platform_token
+  - get_car_maker
+  - get_car_model
+  - get_fuel
+  - get_transmission_gear
+  - get_vehicle_type
+  - get_paragraph
+  - get_question
+  - get_quote
+  - get_sentence
+  - get_word
+- title: "Random number"
+  desc: >
+    Function to create Random Numbers
+  contents:
+  - get_random_number_range
+- title: "HTTP Request"
+  desc: >
+    Function to create HTTP Request
+  contents:
+  - send_custom_http_request
+- title: "Resize an Image"
+  desc: >
+    With this function it is possible to resize Images
+  contents:
+  - resize_image
+- title: "Excel Operations"
+  desc: >
+    Read out and write excel sheets
+  contents:
+  - write_sheet_by_name
+  - read_sheet_by_name
+- title: "XML to JSON"
+  desc: >
+    Function to convert xml to json
+  contents:
+  - xml_to_json
