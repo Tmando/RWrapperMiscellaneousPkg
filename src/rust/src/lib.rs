@@ -1,5 +1,7 @@
 use extendr_api::prelude::*;
+use postgres::types::ToSql;
 pub mod helpers;
+use postgres::{Client, NoTls };
 
 /// Return string `"Hello world!"` to R.
 /// @export
@@ -1203,6 +1205,78 @@ fn xml_to_json(xml_input_str: String)->String{
     }
 }
 
+#[extendr]
+/// This function checks if an input string matches with an regex input
+/// @export
+/// @examples
+/// match_regex_string("^[0-9]*$","153020")
+fn match_regex_string(regex_input: String, seach_string: String)->bool{
+    return rust_miscellaneous_pkg::regex_operations::regex_operations::match_regex_string(regex_input,seach_string)
+}
+
+#[extendr]
+/// This function replaces a regex in an input string
+/// @export
+/// @examples
+/// replace_regex_string("1020 Wien","[^0-9]+","")
+fn replace_regex_string(
+    input_string: String,
+    regex_input: String,
+    replace_str: String)->String{
+    return rust_miscellaneous_pkg::regex_operations::regex_operations::replace_regex_string(input_string,regex_input,replace_str)
+}
+
+#[extendr]
+/// This function split an input string to parts
+/// @export
+/// @examples
+/// split_regex_string("a b c d e","[ ]+")
+fn split_regex_string(
+    input_string: String, 
+    regex_input: String)->Vec<std::string::String>{
+    return rust_miscellaneous_pkg::regex_operations::regex_operations::split_regex_string(input_string,regex_input)
+}
+
+#[extendr]
+/// Get Data from a postgres database
+/// @export
+/// @examples
+/// \dontrun{
+/// query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list())
+/// }
+fn query_db(
+        config: String,
+        query: String,
+        parameter: List
+    )-> String
+{
+    // Get all objects from an R List
+    let objects : Vec<_> = parameter.as_list().unwrap().values().collect();
+    
+    let mut parameter_input: Vec<Box<(dyn ToSql + Sync)>> = Vec::new();
+    for object in objects.iter(){
+        if object.is_logical(){
+            parameter_input.push(Box::new(object.as_bool().unwrap())); 
+        }
+        else if object.is_real() && !object.is_integer() {
+            parameter_input.push(Box::new(object.as_real().unwrap()));
+        }
+        else if object.is_integer() {
+            parameter_input.push(Box::new(object.as_integer().unwrap()));
+        }
+        else if object.is_string(){
+            parameter_input.push(Box::new(object.as_str().unwrap()));
+        } else {
+            panic!("Could not map value {:?}",object)
+        }
+    }
+    let parameter_input: Vec<_> = parameter_input.iter().map(|x| {
+        &**x
+    } ).collect();
+    
+    return serde_json::to_string(&rust_miscellaneous_pkg::postgres_operation::postgres_operation::query_db(config,query,parameter_input)).unwrap();
+}
+
 // Macro to generate exports.
 // This ensures exported functions are registered with R.
 // See corresponding C code in `entrypoint.c`.
@@ -1338,4 +1412,8 @@ extendr_module! {
     fn write_sheet_by_name;
     fn read_sheet_by_name;
     fn xml_to_json;
+    fn match_regex_string;
+    fn replace_regex_string;
+    fn split_regex_string;
+    fn query_db;
 }
