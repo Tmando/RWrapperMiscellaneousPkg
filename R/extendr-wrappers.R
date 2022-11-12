@@ -732,3 +732,29 @@ read_sheet_by_name <- function(file_path, sheet_name) .Call(wrap__read_sheet_by_
 #' 
 xml_to_json <- function(xml_input_str) .Call(wrap__xml_to_json, xml_input_str)
 
+#' This function checks if an input string matches with an regex input
+#' @export
+#' @examples
+#' match_regex_string("^[0-9]*$","153020")
+match_regex_string <- function(regex_input, seach_string) .Call(wrap__match_regex_string, regex_input, seach_string)
+
+#' This function replaces a regex in an input string
+#' @export
+#' @examples
+#' replace_regex_string("1020 Wien","[^0-9]+","")
+replace_regex_string <- function(input_string, regex_input, replace_str) .Call(wrap__replace_regex_string, input_string, regex_input, replace_str)
+
+#' This function split an input string to parts
+#' @export
+#' @examples
+#' split_regex_string("a b c d e","[ ]+")
+split_regex_string <- function(input_string, regex_input) .Call(wrap__split_regex_string, input_string, regex_input)
+
+#' Get Data from a postgres database
+#' @export
+#' @examples
+#' \dontrun{
+#' query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list())
+#' }
+query_db <- function(config, query, parameter) .Call(wrap__query_db, config, query, parameter)
+
