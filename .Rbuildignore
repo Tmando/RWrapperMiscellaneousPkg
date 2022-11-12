@@ -1,3 +1,57 @@
-^RWrapperMiscellaneousPkg\.Rproj$
+ NOT RUN {
+oldJIT <- enableJIT(0)
+# a simple example
+f <- function(x) x+1
+fc <- cmpfun(f)
+fc(2)
+disassemble(fc)
+
+# old R version of lapply
+la1 <- function(X, FUN, ...) {
+    FUN <- match.fun(FUN)
+    if (!is.list(X))
+	X <- as.list(X)
+    rval <- vector("list", length(X))
+    for(i in seq(along = X))
+	rval[i] <- list(FUN(X[[i]], ...))
+    names(rval) <- names(X)		  # keep `names' !
+    return(rval)
+}
+# a small variation
+la2 <- function(X, FUN, ...) {
+    FUN <- match.fun(FUN)
+    if (!is.list(X))
+	X <- as.list(X)
+    rval <- vector("list", length(X))
+    for(i in seq(along = X)) {
+        v <- FUN(X[[i]], ...)
+        if (is.null(v)) rval[i] <- list(v)
+        else rval[[i]] <- v
+    }
+    names(rval) <- names(X)		  # keep `names' !
+    return(rval)
+}
+# Compiled versions
+la1c <- cmpfun(la1)
+la2c <- cmpfun(la2)
+# some timings
+x <- 1:10
+y <- 1:100
+# }
+# NOT RUN {
+system.time(for (i in 1:10000) lapply(x, is.null))
+system.time(for (i in 1:10000) la1(x, is.null))
+system.time(for (i in 1:10000) la1c(x, is.null))
+system.time(for (i in 1:10000) la2(x, is.null))
+system.time(for (i in 1:10000) la2c(x, is.null))
+system.time(for (i in 1:1000) lapply(y, is.null))
+system.time(for (i in 1:1000) la1(y, is.null))
+system.time(for (i in 1:1000) la1c(y, is.null))
+system.time(for (i in 1:1000) la2(y, is.null))
+system.time(for (i in 1:1000) la2c(y, is.null))
+# }
+# NOT RUN {
+enableJIT(oldJIT)
+# }
+^.*\.Rproj$
 ^\.Rproj\.user$
-^LICENSE\.md$

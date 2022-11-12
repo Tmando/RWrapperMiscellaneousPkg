@@ -379,10 +379,16 @@
     <loc>/reference/levenshtein_smid.html</loc>
   </url>
   <url>
+    <loc>/reference/match_regex_string.html</loc>
+  </url>
+  <url>
     <loc>/reference/mod_num.html</loc>
   </url>
   <url>
     <loc>/reference/mul_num.html</loc>
+  </url>
+  <url>
+    <loc>/reference/query_db.html</loc>
   </url>
   <url>
     <loc>/reference/read_file_to_string.html</loc>
@@ -391,10 +397,16 @@
     <loc>/reference/read_sheet_by_name.html</loc>
   </url>
   <url>
+    <loc>/reference/replace_regex_string.html</loc>
+  </url>
+  <url>
     <loc>/reference/resize_image.html</loc>
   </url>
   <url>
     <loc>/reference/send_custom_http_request.html</loc>
+  </url>
+  <url>
+    <loc>/reference/split_regex_string.html</loc>
   </url>
   <url>
     <loc>/reference/sub_num.html</loc>

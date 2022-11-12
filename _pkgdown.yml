@@ -172,3 +172,15 @@ reference:
     Function to convert xml to json
   contents:
   - xml_to_json
+- title: "Regex functions"
+  desc: >
+    Function to do regex operations on strings
+  contents:
+  - match_regex_string
+  - replace_regex_string
+  - split_regex_string
+- title: "Postgres Query"
+  desc: >
+    Query Postgres Database
+  contents:
+  - query_db
