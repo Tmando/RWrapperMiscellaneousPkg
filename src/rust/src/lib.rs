@@ -1075,7 +1075,6 @@ pub fn get_word() -> String {
 
 #[extendr]
 /// return a HTTP Response
-/// @export
 /// @examples send_custom_http_request('https://httpbin.org/get','GET',list(),list(),list(),"")
 /// send_custom_http_request('https://httpbin.org/post','POST',list(),list(),list(),"")
 pub fn send_custom_http_request(
@@ -1280,7 +1279,7 @@ fn query_db(
     );
     return serde_json::to_string(&res).unwrap();
 }
-    
+
 #[extendr]
 /// This is a wrapper for [cs_shake_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
 /// @export
@@ -1501,6 +1500,9 @@ fn tuple_hash_v256(custom_string: Raw,input: Raw)->Raw{
     let res = rust_miscellaneous_pkg::hashing::hashing::tuple_hash_v256(custom_string.as_slice(),input.as_slice());
     return Raw::from_bytes(&res)
 }
+
+
+
 
 // Macro to generate exports.
 // This ensures exported functions are registered with R.
