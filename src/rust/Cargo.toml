@@ -9,7 +9,7 @@ name = 'RWrapperMiscellaneousPkg'
 
 [dependencies]
 extendr-api = '*'
-rust_miscellaneous_pkg = { git = "https://github.com/Tmando/rust_miscellaneous_pkg/", tag = "v0.4.2" }
+rust_miscellaneous_pkg = { git = "https://github.com/Tmando/rust_miscellaneous_pkg/", tag = "v0.5.0" }
 bytes = "1"
 nalgebra = "0.31.1"
 tokio = "1.21.2"
