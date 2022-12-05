@@ -1236,41 +1236,50 @@ fn split_regex_string(
 }
 
 #[extendr]
-/// Get Data from a postgres database
+/// Get Data from diffrent databases
 /// @export
 /// @examples
 /// \dontrun{
-/// query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list())
+/// query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list(),5)
 /// }
 fn query_db(
         config: String,
         query: String,
-        parameter: List
+        parameter: List,
+        max_connection: i64
     )-> String
 {
     // Get all objects from an R List
     let objects : Vec<_> = parameter.as_list().unwrap().values().collect();
     
-    let mut parameter_input: Vec<Box<(dyn ToSql + Sync)>> = Vec::new();
+    let mut parameter_input: Vec<serde_json::Value> = Vec::new();
     for object in objects.iter(){
         if object.is_logical(){
-            parameter_input.push(Box::new(object.as_bool().unwrap())); 
+            parameter_input.push(serde_json::json!(object.as_bool().unwrap())); 
         }
         else if object.is_real() && !object.is_integer() {
-            parameter_input.push(Box::new(object.as_real().unwrap()));
+            parameter_input.push(serde_json::json!(object.as_real().unwrap()));
         }
         else if object.is_integer() {
-            parameter_input.push(Box::new(object.as_integer().unwrap()));
+            parameter_input.push(serde_json::json!((object.as_integer().unwrap())));
         }
         else if object.is_string(){
-            parameter_input.push(Box::new(object.as_str().unwrap()));
+            parameter_input.push(serde_json::json!(object.as_str().unwrap()));
         } else {
             panic!("Could not map value {:?}",object)
         }
     }
-    let parameter_input: Vec<_> = parameter_input.iter().map(|x| {
-        &**x
-    } ).collect();
+    let run_time = tokio::runtime::Runtime::new().unwrap();
+    let res = run_time.block_on(
+        rust_miscellaneous_pkg::sql_operation::sql_operation::query_db(
+            config,
+            query,
+            parameter_input,
+            max_connection
+        )
+    );
+    return serde_json::to_string(&res).unwrap();
+}
     
     return serde_json::to_string(&rust_miscellaneous_pkg::postgres_operation::postgres_operation::query_db(config,query,parameter_input)).unwrap();
 }
