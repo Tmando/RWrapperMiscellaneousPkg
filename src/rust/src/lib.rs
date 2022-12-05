@@ -1,7 +1,5 @@
 use extendr_api::prelude::*;
-use postgres::types::ToSql;
 pub mod helpers;
-use postgres::{Client, NoTls };
 
 /// Return string `"Hello world!"` to R.
 /// @export
