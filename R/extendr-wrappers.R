@@ -683,7 +683,6 @@ get_sentence <- function(word_count) .Call(wrap__get_sentence, word_count)
 get_word <- function() .Call(wrap__get_word)
 
 #' return a HTTP Response
-#' @export
 #' @examples send_custom_http_request('https://httpbin.org/get','GET',list(),list(),list(),"")
 #' send_custom_http_request('https://httpbin.org/post','POST',list(),list(),list(),"")
 send_custom_http_request <- function(url, method, request_headers, request_query_params, request_form, request_body) .Call(wrap__send_custom_http_request, url, method, request_headers, request_query_params, request_form, request_body)
@@ -750,11 +749,143 @@ replace_regex_string <- function(input_string, regex_input, replace_str) .Call(w
 #' split_regex_string("a b c d e","[ ]+")
 split_regex_string <- function(input_string, regex_input) .Call(wrap__split_regex_string, input_string, regex_input)
 
-#' Get Data from a postgres database
+#' Get Data from diffrent databases
 #' @export
 #' @examples
 #' \dontrun{
-#' query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list())
+#' query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list(),5)
 #' }
-query_db <- function(config, query, parameter) .Call(wrap__query_db, config, query, parameter)
+query_db <- function(config, query, parameter, max_connection) .Call(wrap__query_db, config, query, parameter, max_connection)
+
+#' This is a wrapper for [cs_shake_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+#' @export
+#' @examples
+#' cs_shake_v256(as.raw(""),as.raw(""),as.raw("Hallo Welt"))
+cs_shake_v256 <- function(name, custom_string, input) .Call(wrap__cs_shake_v256, name, custom_string, input)
+
+#' This is a wrapper for [kangaroo_twelve_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.KangarooTwelveXof.html)
+#' @export
+#' @examples
+#' kangaroo_twelve_xof(as.raw("Hallo Welt"),as.raw("Test"))
+kangaroo_twelve_xof <- function(custom_string, input) .Call(wrap__kangaroo_twelve_xof, custom_string, input)
+
+#' This is a wrapper for [kangaroo_twelve](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.KangarooTwelve.html)
+#' @export
+#' @examples
+#' kangaroo_twelve_xof(as.raw("Hallo Welt"),as.raw("Test"))
+kangaroo_twelve <- function(custom_string, input) .Call(wrap__kangaroo_twelve, custom_string, input)
+
+#' This is a wrapper for [cs_shake_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+#' @export
+#' @examples
+#' cs_shake_v128(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust"))
+cs_shake_v128 <- function(name, custom_string, input) .Call(wrap__cs_shake_v128, name, custom_string, input)
+
+#' This is a wrapper for [keccak_v224](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Keccak.html)
+#' @export
+#' @examples
+#' keccak_v224(as.raw("Rust"))
+keccak_v224 <- function(input) .Call(wrap__keccak_v224, input)
+
+#' This is a wrapper for [keccak_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Keccak.html)
+#' @export
+#' @examples
+#' keccak_v256(as.raw("Rust")) 
+keccak_v256 <- function(input) .Call(wrap__keccak_v256, input)
+
+#' This is a wrapper for [keccak_v384](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Keccak.html)
+#' @export
+#' @examples
+#' keccak_v384(as.raw("Rust")) 
+keccak_v384 <- function(input) .Call(wrap__keccak_v384, input)
+
+#' This is a wrapper for [keccak_v512](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+#' @export
+#' @examples
+#' keccak_v512(as.raw("Rust")) 
+keccak_v512 <- function(input) .Call(wrap__keccak_v512, input)
+
+#' This is a wrapper for [kmac_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Kmac.html)
+#' @export
+#' @examples
+#' kmac_v128(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+kmac_v128 <- function(key, custom_string, input) .Call(wrap__kmac_v128, key, custom_string, input)
+
+#' This is a wrapper for [kmac_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Kmac.html)
+#' @export
+#' @examples
+#' kmac_v256(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+kmac_v256 <- function(key, custom_string, input) .Call(wrap__kmac_v256, key, custom_string, input)
+
+#' This is a wrapper for [kmac_v256_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.KmacXof.html)
+#' @export
+#' @examples
+#' kmac_v256_xof(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+kmac_v256_xof <- function(key, input, custom_string) .Call(wrap__kmac_v256_xof, key, input, custom_string)
+
+#' This is a wrapper for [kmac_v128_xof](/// This is a wrapper for [kmac_v128_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+#' @export
+#' @examples
+#' kmac_v128_xof(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+kmac_v128_xof <- function(key, input, custom_string) .Call(wrap__kmac_v128_xof, key, input, custom_string)
+
+#' This is a wrapper for [parallel_hash_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.ParallelHash.html)
+#' @export
+#' @examples
+#' parallel_hash_v128(as.raw("Hallo Welt"),as.raw("Test"),32)  
+parallel_hash_v128 <- function(custom_string, input, block_size) .Call(wrap__parallel_hash_v128, custom_string, input, block_size)
+
+#' This is a wrapper for [parallel_hash_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.ParallelHash.html)
+#' @export
+#' @examples
+#' parallel_hash_v256(as.raw("Hallo Welt"),as.raw("Test"),32)  
+parallel_hash_v256 <- function(custom_string, input, block_size) .Call(wrap__parallel_hash_v256, custom_string, input, block_size)
+
+#' This is a wrapper for [sha3_v224](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Sha3.html)
+#' @export
+#' @examples
+#' sha3_v224(as.raw("Hallo Welt"))  
+sha3_v224 <- function(input) .Call(wrap__sha3_v224, input)
+
+#' This is a wrapper for [sha3_v384](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Sha3.html)
+#' @export
+#' @examples
+#' sha3_v384(as.raw("Hallo Welt")) 
+sha3_v384 <- function(input) .Call(wrap__sha3_v384, input)
+
+#' This is a wrapper for [sha3_v512](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Sha3.html)
+#' @export
+#' @examples
+#' sha3_v512(as.raw("Hallo Welt"))
+sha3_v512 <- function(input) .Call(wrap__sha3_v512, input)
+
+#' This is a wrapper for [shake_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Shake.html)
+#' @export
+#' @examples
+#' shake_v128(as.raw("Hallo Welt"))
+shake_v128 <- function(input) .Call(wrap__shake_v128, input)
+
+#' This is a wrapper for [shake_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Shake.html)
+#' @export
+#' @examples
+#' shake_v256(as.raw("Hallo Welt"))
+shake_v256 <- function(input) .Call(wrap__shake_v256, input)
+
+#' This is a wrapper for [tuple_hash_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.TupleHash.html)
+#' @export
+#' @examples
+#' tuple_hash_v128(as.raw("Hallo Welt"),as.raw("Rust"))
+tuple_hash_v128 <- function(custom_string, input) .Call(wrap__tuple_hash_v128, custom_string, input)
+
+#' This is a wrapper for [tuple_hash_v128_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.TupleHashXof.html)
+#' @export
+#' @examples
+#' tuple_hash_v128_xof(as.raw("Hallo Welt"),as.raw("Rust"))
+tuple_hash_v128_xof <- function(custom_string, input) .Call(wrap__tuple_hash_v128_xof, custom_string, input)
+
+#' This is a wrapper for [tuple_hash_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.TupleHash.html)
+#' @export
+#' @examples
+#' tuple_hash_v256(as.raw("Hallo Welt"),as.raw("Rust"))
+tuple_hash_v256 <- function(custom_string, input) .Call(wrap__tuple_hash_v256, custom_string, input)
 
