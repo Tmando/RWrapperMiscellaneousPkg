@@ -1281,7 +1281,225 @@ fn query_db(
     return serde_json::to_string(&res).unwrap();
 }
     
-    return serde_json::to_string(&rust_miscellaneous_pkg::postgres_operation::postgres_operation::query_db(config,query,parameter_input)).unwrap();
+#[extendr]
+/// This is a wrapper for [cs_shake_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+/// @export
+/// @examples
+/// cs_shake_v256(as.raw(""),as.raw(""),as.raw("Hallo Welt"))
+fn cs_shake_v256(name: Raw, custom_string: Raw,input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::cs_shake_v256(name.as_slice(), custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [kangaroo_twelve_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.KangarooTwelveXof.html)
+/// @export
+/// @examples
+/// kangaroo_twelve_xof(as.raw("Hallo Welt"),as.raw("Test"))
+fn kangaroo_twelve_xof(custom_string: Raw, input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::kangaroo_twelve_xof(custom_string.as_slice(), input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [kangaroo_twelve](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.KangarooTwelve.html)
+/// @export
+/// @examples
+/// kangaroo_twelve_xof(as.raw("Hallo Welt"),as.raw("Test"))
+fn kangaroo_twelve(custom_string: Raw, input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::kangaroo_twelve(custom_string.as_slice(), input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+
+#[extendr]
+/// This is a wrapper for [cs_shake_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+/// @export
+/// @examples
+/// cs_shake_v128(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust"))
+fn cs_shake_v128(name: Raw, custom_string: Raw,input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::cs_shake_v128(name.as_slice(), custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [keccak_v224](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Keccak.html)
+/// @export
+/// @examples
+/// keccak_v224(as.raw("Rust"))
+fn keccak_v224(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::keccak_v224(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [keccak_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Keccak.html)
+/// @export
+/// @examples
+/// keccak_v256(as.raw("Rust")) 
+fn keccak_v256(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::keccak_v256(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [keccak_v384](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Keccak.html)
+/// @export
+/// @examples
+/// keccak_v384(as.raw("Rust")) 
+fn keccak_v384(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::keccak_v384(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [keccak_v512](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+/// @export
+/// @examples
+/// keccak_v512(as.raw("Rust")) 
+fn keccak_v512(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::keccak_v512(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [kmac_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Kmac.html)
+/// @export
+/// @examples
+/// kmac_v128(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+fn kmac_v128(key: Raw, custom_string: Raw,input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::kmac_v128(key.as_slice(),custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [kmac_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Kmac.html)
+/// @export
+/// @examples
+/// kmac_v256(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+fn kmac_v256(key: Raw, custom_string: Raw,input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::kmac_v256(key.as_slice(),custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [kmac_v256_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.KmacXof.html)
+/// @export
+/// @examples
+/// kmac_v256_xof(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+fn kmac_v256_xof(key: Raw, input: Raw,custom_string: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::kmac_v256_xof(key.as_slice(),custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [kmac_v128_xof](/// This is a wrapper for [kmac_v128_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.CShake.html)
+/// @export
+/// @examples
+/// kmac_v128_xof(as.raw("Hallo Welt"),as.raw("Test"),as.raw("Rust")) 
+fn kmac_v128_xof(key: Raw, input: Raw,custom_string: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::kmac_v128_xof(key.as_slice(),custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [parallel_hash_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.ParallelHash.html)
+/// @export
+/// @examples
+/// parallel_hash_v128(as.raw("Hallo Welt"),as.raw("Test"),32)  
+fn parallel_hash_v128(custom_string: Raw,input: Raw, block_size: i32)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::parallel_hash_v128(custom_string.as_slice(),input.as_slice(),block_size as usize);
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [parallel_hash_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.ParallelHash.html)
+/// @export
+/// @examples
+/// parallel_hash_v256(as.raw("Hallo Welt"),as.raw("Test"),32)  
+fn parallel_hash_v256(custom_string: Raw,input: Raw, block_size: i32)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::parallel_hash_v256(custom_string.as_slice(),input.as_slice(),block_size as usize);
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [sha3_v224](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Sha3.html)
+/// @export
+/// @examples
+/// sha3_v224(as.raw("Hallo Welt"))  
+fn sha3_v224(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::sha3_v224(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [sha3_v384](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Sha3.html)
+/// @export
+/// @examples
+/// sha3_v384(as.raw("Hallo Welt")) 
+fn sha3_v384(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::sha3_v384(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [sha3_v512](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Sha3.html)
+/// @export
+/// @examples
+/// sha3_v512(as.raw("Hallo Welt"))
+fn sha3_v512(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::sha3_v512(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [shake_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Shake.html)
+/// @export
+/// @examples
+/// shake_v128(as.raw("Hallo Welt"))
+fn shake_v128(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::shake_v128(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [shake_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.Shake.html)
+/// @export
+/// @examples
+/// shake_v256(as.raw("Hallo Welt"))
+fn shake_v256(input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::shake_v256(input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [tuple_hash_v128](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.TupleHash.html)
+/// @export
+/// @examples
+/// tuple_hash_v128(as.raw("Hallo Welt"),as.raw("Rust"))
+fn tuple_hash_v128(custom_string: Raw,input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::tuple_hash_v128(custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [tuple_hash_v128_xof](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.TupleHashXof.html)
+/// @export
+/// @examples
+/// tuple_hash_v128_xof(as.raw("Hallo Welt"),as.raw("Rust"))
+fn tuple_hash_v128_xof(custom_string: Raw,input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::tuple_hash_v128_xof(custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
+}
+
+#[extendr]
+/// This is a wrapper for [tuple_hash_v256](https://docs.rs/tiny-keccak/latest/tiny_keccak/struct.TupleHash.html)
+/// @export
+/// @examples
+/// tuple_hash_v256(as.raw("Hallo Welt"),as.raw("Rust"))
+fn tuple_hash_v256(custom_string: Raw,input: Raw)->Raw{
+    let res = rust_miscellaneous_pkg::hashing::hashing::tuple_hash_v256(custom_string.as_slice(),input.as_slice());
+    return Raw::from_bytes(&res)
 }
 
 // Macro to generate exports.
@@ -1423,4 +1641,26 @@ extendr_module! {
     fn replace_regex_string;
     fn split_regex_string;
     fn query_db;
+    fn cs_shake_v256;
+    fn kangaroo_twelve_xof;
+    fn kangaroo_twelve;
+    fn cs_shake_v128;
+    fn keccak_v224;
+    fn keccak_v256;
+    fn keccak_v384;
+    fn keccak_v512;
+    fn kmac_v128;
+    fn kmac_v256;
+    fn kmac_v256_xof;
+    fn kmac_v128_xof;
+    fn parallel_hash_v128;
+    fn parallel_hash_v256;
+    fn sha3_v224;
+    fn sha3_v384;
+    fn sha3_v512;
+    fn shake_v128;
+    fn shake_v256;
+    fn tuple_hash_v128;
+    fn tuple_hash_v128_xof;
+    fn tuple_hash_v256;
 }
