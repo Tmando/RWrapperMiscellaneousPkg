@@ -2,15 +2,15 @@
 % Please edit documentation in R/extendr-wrappers.R
 \name{query_db}
 \alias{query_db}
-\title{Get Data from a postgres database}
+\title{Get Data from diffrent databases}
 \usage{
-query_db(config, query, parameter)
+query_db(config, query, parameter, max_connection)
 }
 \description{
-Get Data from a postgres database
+Get Data from diffrent databases
 }
 \examples{
 \dontrun{
-query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list())
+query_db("postgresql://postgres:postgres@localhost:5500/test1db","SELECT false::bool as false_val",list(),5)
 }
 }
