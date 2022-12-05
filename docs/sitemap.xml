@@ -25,6 +25,12 @@
     <loc>/reference/bom_matching.html</loc>
   </url>
   <url>
+    <loc>/reference/cs_shake_v128.html</loc>
+  </url>
+  <url>
+    <loc>/reference/cs_shake_v256.html</loc>
+  </url>
+  <url>
     <loc>/reference/div_num.html</loc>
   </url>
   <url>
@@ -370,6 +376,36 @@
     <loc>/reference/index.html</loc>
   </url>
   <url>
+    <loc>/reference/kangaroo_twelve.html</loc>
+  </url>
+  <url>
+    <loc>/reference/kangaroo_twelve_xof.html</loc>
+  </url>
+  <url>
+    <loc>/reference/keccak_v224.html</loc>
+  </url>
+  <url>
+    <loc>/reference/keccak_v256.html</loc>
+  </url>
+  <url>
+    <loc>/reference/keccak_v384.html</loc>
+  </url>
+  <url>
+    <loc>/reference/keccak_v512.html</loc>
+  </url>
+  <url>
+    <loc>/reference/kmac_v128.html</loc>
+  </url>
+  <url>
+    <loc>/reference/kmac_v128_xof.html</loc>
+  </url>
+  <url>
+    <loc>/reference/kmac_v256.html</loc>
+  </url>
+  <url>
+    <loc>/reference/kmac_v256_xof.html</loc>
+  </url>
+  <url>
     <loc>/reference/kmp_matching.html</loc>
   </url>
   <url>
@@ -386,6 +422,12 @@
   </url>
   <url>
     <loc>/reference/mul_num.html</loc>
+  </url>
+  <url>
+    <loc>/reference/parallel_hash_v128.html</loc>
+  </url>
+  <url>
+    <loc>/reference/parallel_hash_v256.html</loc>
   </url>
   <url>
     <loc>/reference/query_db.html</loc>
@@ -406,10 +448,34 @@
     <loc>/reference/send_custom_http_request.html</loc>
   </url>
   <url>
+    <loc>/reference/sha3_v224.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sha3_v384.html</loc>
+  </url>
+  <url>
+    <loc>/reference/sha3_v512.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shake_v128.html</loc>
+  </url>
+  <url>
+    <loc>/reference/shake_v256.html</loc>
+  </url>
+  <url>
     <loc>/reference/split_regex_string.html</loc>
   </url>
   <url>
     <loc>/reference/sub_num.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tuple_hash_v128.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tuple_hash_v128_xof.html</loc>
+  </url>
+  <url>
+    <loc>/reference/tuple_hash_v256.html</loc>
   </url>
   <url>
     <loc>/reference/write_sheet_by_name.html</loc>
