@@ -16,6 +16,12 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/abs_matrix.html</loc>
+  </url>
+  <url>
+    <loc>/reference/add_matrix.html</loc>
+  </url>
+  <url>
     <loc>/reference/add_num.html</loc>
   </url>
   <url>
@@ -32,6 +38,9 @@
   </url>
   <url>
     <loc>/reference/div_num.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dot_product_matrix.html</loc>
   </url>
   <url>
     <loc>/reference/get_abbreviation.html</loc>
@@ -418,7 +427,16 @@
     <loc>/reference/match_regex_string.html</loc>
   </url>
   <url>
+    <loc>/reference/max_matrix.html</loc>
+  </url>
+  <url>
+    <loc>/reference/min_matrix.html</loc>
+  </url>
+  <url>
     <loc>/reference/mod_num.html</loc>
+  </url>
+  <url>
+    <loc>/reference/mul_matrix.html</loc>
   </url>
   <url>
     <loc>/reference/mul_num.html</loc>
@@ -466,7 +484,13 @@
     <loc>/reference/split_regex_string.html</loc>
   </url>
   <url>
+    <loc>/reference/sub_matrix.html</loc>
+  </url>
+  <url>
     <loc>/reference/sub_num.html</loc>
+  </url>
+  <url>
+    <loc>/reference/transpose_matrix.html</loc>
   </url>
   <url>
     <loc>/reference/tuple_hash_v128.html</loc>
