@@ -8,6 +8,38 @@
 #' @useDynLib RWrapperMiscellaneousPkg, .registration = TRUE
 NULL
 
+#' This function returns the transpose matrix
+#' @export
+transpose_matrix <- function(mat_one) .Call(wrap__transpose_matrix, mat_one)
+
+#' This function returns the min value of a function
+#' @export
+min_matrix <- function(mat_one) .Call(wrap__min_matrix, mat_one)
+
+#' This function returns the max value of a function
+#' @export
+max_matrix <- function(mat_one) .Call(wrap__max_matrix, mat_one)
+
+#' This function calcluates the abs of a matrix
+#' @export
+abs_matrix <- function(mat_one) .Call(wrap__abs_matrix, mat_one)
+
+#' This function calcluates the dot product of two function
+#' @export
+dot_product_matrix <- function(mat_one, mat_two) .Call(wrap__dot_product_matrix, mat_one, mat_two)
+
+#' This function subtract two matrices
+#' @export
+sub_matrix <- function(mat_one, mat_two) .Call(wrap__sub_matrix, mat_one, mat_two)
+
+#' This function add to matrices
+#' @export
+add_matrix <- function(mat_one, mat_two) .Call(wrap__add_matrix, mat_one, mat_two)
+
+#' This function multiplies to matrices
+#' @export
+mul_matrix <- function(mat_one, mat_two) .Call(wrap__mul_matrix, mat_one, mat_two)
+
 #' Return string `"Hello world!"` to R.
 #' @export
 hello_world <- function() .Call(wrap__hello_world)

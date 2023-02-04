@@ -1502,6 +1502,8 @@ fn tuple_hash_v256(custom_string: Raw,input: Raw)->Raw{
 }
 
 #[extendr]
+/// This function multiplies to matrices
+/// @export
 fn mul_matrix(
     mat_one: RMatrix<f64>,
     mat_two: RMatrix<f64>
@@ -1524,6 +1526,8 @@ fn mul_matrix(
 }
 
 #[extendr]
+/// This function add to matrices
+/// @export
 fn add_matrix(
     mat_one: RMatrix<f64>,
     mat_two: RMatrix<f64>
@@ -1546,6 +1550,8 @@ fn add_matrix(
 }
 
 #[extendr]
+/// This function calcluates the dot product of two function
+/// @export
 fn dot_product_matrix(
     mat_one: RMatrix<f64>,
     mat_two: RMatrix<f64>
@@ -1568,6 +1574,8 @@ fn dot_product_matrix(
 }
 
 #[extendr]
+/// This function calcluates the abs of a matrix
+/// @export
 fn abs_matrix(
     mat_one: RMatrix<f64>
 )->RMatrix<f64>{
@@ -1583,6 +1591,8 @@ fn abs_matrix(
 }
 
 #[extendr]
+/// This function subtract two matrices
+/// @export
 fn sub_matrix(
     mat_one: RMatrix<f64>,
     mat_two: RMatrix<f64>
@@ -1605,6 +1615,8 @@ fn sub_matrix(
 }
 
 #[extendr]
+/// This function returns the max value of a function
+/// @export
 fn max_matrix(
     mat_one: RMatrix<f64>
 )->f64{
@@ -1620,6 +1632,8 @@ fn max_matrix(
 }
 
 #[extendr]
+/// This function returns the min value of a function
+/// @export
 fn min_matrix(
     mat_one: RMatrix<f64>
 )->f64{
@@ -1635,6 +1649,8 @@ fn min_matrix(
 }
 
 #[extendr]
+/// This function returns the transpose matrix
+/// @export
 fn transpose_matrix(
     mat_one: RMatrix<f64>
 )->RMatrix<f64>{
