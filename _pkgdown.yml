@@ -210,3 +210,16 @@ reference:
   - tuple_hash_v128
   - tuple_hash_v128_xof
   - tuple_hash_v256
+- title: matrix
+  desc: >
+    Different matrix operation
+  contents:
+  - add_matrix
+  - sub_matrix
+  - abs_matrix
+  - dot_product_matrix
+  - max_matrix
+  - min_matrix
+  - mul_matrix
+  - transpose_matrix
+  
