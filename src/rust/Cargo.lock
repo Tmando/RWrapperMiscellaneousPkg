@@ -17,7 +17,6 @@ dependencies = [
  "image",
  "nalgebra 0.31.1",
  "openssl",
- "postgres",
  "rust_miscellaneous_pkg",
  "serde_json",
  "tokio",
@@ -2895,8 +2894,8 @@ dependencies = [
 
 [[package]]
 name = "rust_miscellaneous_pkg"
-version = "0.5.0"
-source = "git+https://github.com/Tmando/rust_miscellaneous_pkg/?tag=v0.5.0#e0d8868f891d620065d30438ce0f7aa26aa3191b"
+version = "0.6.2"
+source = "git+https://github.com/Tmando/rust_miscellaneous_pkg/?tag=v0.6.2#6ba7bad504ab1f2168a42763928cf49ab8885b31"
 dependencies = [
  "async-std",
  "base64",
@@ -2907,7 +2906,7 @@ dependencies = [
  "docx-rs",
  "fakeit",
  "futures",
- "geo-types 0.7.7",
+ "geo-types 0.6.2",
  "geozero-core",
  "hex",
  "image",
