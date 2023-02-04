@@ -1501,6 +1501,174 @@ fn tuple_hash_v256(custom_string: Raw,input: Raw)->Raw{
     return Raw::from_bytes(&res)
 }
 
+#[extendr]
+fn mul_matrix(
+    mat_one: RMatrix<f64>,
+    mat_two: RMatrix<f64>
+)->RMatrix<f64>{
+    let mat_one_data = mat_one.data();
+    let mat_two_data = mat_two.data();
+    let res_matrix = rust_miscellaneous_pkg::matrix_operations::matrix_operations::mul_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        ),
+        nalgebra::DMatrix::from_vec(
+            mat_two.ncols(),
+            mat_two.nrows(),
+            mat_two_data.to_vec()
+        )
+    );
+    return convert_vector_to_rmatrix(res_matrix.data.as_vec(),res_matrix.ncols(),res_matrix.nrows());
+}
+
+#[extendr]
+fn add_matrix(
+    mat_one: RMatrix<f64>,
+    mat_two: RMatrix<f64>
+)->RMatrix<f64>{
+    let mat_one_data = mat_one.data();
+    let mat_two_data = mat_two.data();
+    let res_matrix = rust_miscellaneous_pkg::matrix_operations::matrix_operations::add_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        ),
+        nalgebra::DMatrix::from_vec(
+            mat_two.ncols(),
+            mat_two.nrows(),
+            mat_two_data.to_vec()
+        )
+    );
+    return convert_vector_to_rmatrix(res_matrix.data.as_vec(),res_matrix.ncols(),res_matrix.nrows());
+}
+
+#[extendr]
+fn dot_product_matrix(
+    mat_one: RMatrix<f64>,
+    mat_two: RMatrix<f64>
+)->f64{
+    let mat_one_data = mat_one.data();
+    let mat_two_data = mat_two.data();
+    let dot_product = rust_miscellaneous_pkg::matrix_operations::matrix_operations::dot_product_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        ),
+        nalgebra::DMatrix::from_vec(
+            mat_two.ncols(),
+            mat_two.nrows(),
+            mat_two_data.to_vec()
+        )
+    );
+    return dot_product;
+}
+
+#[extendr]
+fn abs_matrix(
+    mat_one: RMatrix<f64>
+)->RMatrix<f64>{
+    let mat_one_data = mat_one.data();
+    let abs_matrix = rust_miscellaneous_pkg::matrix_operations::matrix_operations::abs_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        )
+    );
+    return convert_vector_to_rmatrix(abs_matrix.data.as_vec(),abs_matrix.ncols(),abs_matrix.nrows());
+}
+
+#[extendr]
+fn sub_matrix(
+    mat_one: RMatrix<f64>,
+    mat_two: RMatrix<f64>
+)->RMatrix<f64>{
+    let mat_one_data = mat_one.data();
+    let mat_two_data = mat_two.data();
+    let res_matrix = rust_miscellaneous_pkg::matrix_operations::matrix_operations::sub_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        ),
+        nalgebra::DMatrix::from_vec(
+            mat_two.ncols(),
+            mat_two.nrows(),
+            mat_two_data.to_vec()
+        )
+    );
+    return convert_vector_to_rmatrix(res_matrix.data.as_vec(),res_matrix.ncols(),res_matrix.nrows());
+}
+
+#[extendr]
+fn max_matrix(
+    mat_one: RMatrix<f64>
+)->f64{
+    let mat_one_data = mat_one.data();
+    let max_matrix = rust_miscellaneous_pkg::matrix_operations::matrix_operations::max_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        )
+    );
+    return max_matrix;
+}
+
+#[extendr]
+fn min_matrix(
+    mat_one: RMatrix<f64>
+)->f64{
+    let mat_one_data = mat_one.data();
+    let min_matrix = rust_miscellaneous_pkg::matrix_operations::matrix_operations::min_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        )
+    );
+    return min_matrix;
+}
+
+#[extendr]
+fn transpose_matrix(
+    mat_one: RMatrix<f64>
+)->RMatrix<f64>{
+    let mat_one_data = mat_one.data();
+    let transpose_matrix = rust_miscellaneous_pkg::matrix_operations::matrix_operations::transpose_matrix(
+        nalgebra::DMatrix::from_vec(
+            mat_one.ncols(),
+            mat_one.nrows(),
+            mat_one_data.to_vec()
+        )
+    );
+    return convert_vector_to_rmatrix(transpose_matrix.data.as_vec(),transpose_matrix.ncols(),transpose_matrix.nrows());
+}
+fn convert_single_dim_vector_to_multi_dim_vector(input_vec:&Vec<f64>,ncols:usize,nrows:usize)->Vec<Vec<f64>>{
+    let mut out_matrix:Vec<Vec<f64>> = Vec::new();
+    for i in 0..nrows{
+        let mut row_vec:Vec<f64> = Vec::new();
+        for j in 0..ncols{
+            row_vec.push(input_vec[i*ncols+j]);
+        }
+        out_matrix.push(row_vec);
+    }
+    return out_matrix;
+}
+
+fn convert_vector_to_rmatrix(input_vec:&Vec<f64>,ncols:usize,nrows:usize)->RMatrix<f64>{
+    let mut out_matrix:Vec<Vec<f64>> = convert_single_dim_vector_to_multi_dim_vector(input_vec,ncols,nrows);
+    let rmatrix = RMatrix::new_matrix(
+        nrows, ncols,
+        | nrows, ncols | out_matrix[nrows][ncols]
+    );
+    return rmatrix;
+}
+
 
 
 
@@ -1509,6 +1677,14 @@ fn tuple_hash_v256(custom_string: Raw,input: Raw)->Raw{
 // See corresponding C code in `entrypoint.c`.
 extendr_module! {
     mod RWrapperMiscellaneousPkg;
+    fn transpose_matrix;
+    fn min_matrix;
+    fn max_matrix;
+    fn abs_matrix;
+    fn dot_product_matrix;
+    fn sub_matrix;
+    fn add_matrix;
+    fn mul_matrix;
     fn hello_world;
     fn read_file_to_string;
     fn write_file_from_char_vec;
