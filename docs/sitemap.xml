@@ -385,6 +385,9 @@
     <loc>/reference/index.html</loc>
   </url>
   <url>
+    <loc>/reference/json_str_to_robj.html</loc>
+  </url>
+  <url>
     <loc>/reference/kangaroo_twelve.html</loc>
   </url>
   <url>
@@ -506,5 +509,8 @@
   </url>
   <url>
     <loc>/reference/xml_to_json.html</loc>
+  </url>
+  <url>
+    <loc>/reference/xml_to_robj.html</loc>
   </url>
 </urlset>
