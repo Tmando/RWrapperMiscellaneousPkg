@@ -1,6 +1,6 @@
 Package: RWrapperMiscellaneousPkg
 Title: RWrapperMiscellaneousPkg 
-Version: 1.7.0
+Version: 1.8.0
 Authors@R: 
     person("Thomas", "Mandorfer", , "t.mandorfer@gmail.com", role = c("aut", "cre"),
            comment = NULL)
