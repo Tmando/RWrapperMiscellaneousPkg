@@ -1084,7 +1084,7 @@ pub fn send_custom_http_request(
     request_query_params: List,
     request_form: List,
     request_body: String,
-) -> String {
+) -> Robj {
     let run_time = tokio::runtime::Runtime::new().unwrap();
     let res = run_time.block_on(
         rust_miscellaneous_pkg::custom_request::custom_request::create_request(
@@ -1102,8 +1102,9 @@ pub fn send_custom_http_request(
             Some(bytes::Bytes::from(request_body)),
         ),
     );
+    let v = serde_json::to_value(&res.unwrap()).unwrap();
 
-    return serde_json::to_string(&res.unwrap()).unwrap();
+    return extract_json::extract_json_value(&v);
 }
 
 #[extendr]
@@ -1165,16 +1166,11 @@ fn write_sheet_by_name(
 /// @export
 /// @examples
 /// read_sheet_by_name("example_input.xlsx","Test1")
-fn read_sheet_by_name(file_path: String, sheet_name: String)->String{
-    match serde_json::to_string(
-        &rust_miscellaneous_pkg::excel_operations::excel_operations::read_sheet_by_name(
-            file_path,
-            sheet_name
-        )
-    ){
-        Ok(res) => return res,
-        Err(err) => panic!("{}", err)
-    }
+fn read_sheet_by_name(file_path: String, sheet_name: String)->Robj{
+    extract_json::extract_json_value(&rust_miscellaneous_pkg::excel_operations::excel_operations::read_sheet_by_name(
+        file_path,
+        sheet_name
+    ))
 }
 #[extendr]
 /// convert an xml string to json
@@ -1246,7 +1242,7 @@ fn query_db(
         query: String,
         parameter: List,
         max_connection: i64
-    )-> String
+    )-> Robj
 {
     // Get all objects from an R List
     let objects : Vec<_> = parameter.as_list().unwrap().values().collect();
@@ -1277,7 +1273,8 @@ fn query_db(
             max_connection
         )
     );
-    return serde_json::to_string(&res).unwrap();
+    
+    return extract_json::extract_json_value(&res);
 }
 
 #[extendr]
@@ -1664,6 +1661,17 @@ fn transpose_matrix(
     );
     return convert_vector_to_rmatrix(transpose_matrix.data.as_vec(),transpose_matrix.ncols(),transpose_matrix.nrows());
 }
+
+#[extendr]
+/// This function converts an json str to to an RList
+/// @export
+fn json_str_to_robj(
+    input_str: String
+)->Robj{
+    return extract_json::from_json(input_str);
+}
+
+
 fn convert_single_dim_vector_to_multi_dim_vector(input_vec:&Vec<f64>,ncols:usize,nrows:usize)->Vec<Vec<f64>>{
     let mut out_matrix:Vec<Vec<f64>> = Vec::new();
     for i in 0..nrows{
@@ -1683,6 +1691,27 @@ fn convert_vector_to_rmatrix(input_vec:&Vec<f64>,ncols:usize,nrows:usize)->RMatr
         | nrows, ncols | out_matrix[nrows][ncols]
     );
     return rmatrix;
+}
+
+#[extendr]
+/// convert an xml string to json
+/// @description This function converts an xml string to an robj
+/// @export
+/// @examples
+/// inputStr <- "<dataset>
+///                    <record>
+///                        <id>1</id>
+///                         <first_name>Nerita</first_name>
+///                          <last_name>Stanney</last_name>
+///                          <email>nstanney0@domainmarket.com</email>
+///                          <gender>Female</gender>
+///                          <ip_address>223.10.217.33</ip_address>
+///                     </record>
+///        </dataset>"
+/// xml_to_robj(inputStr)
+/// 
+fn xml_to_robj(xml_input_str: String)->Robj{
+    return extract_json::extract_json_value(&rust_miscellaneous_pkg::xml_to_json_convert::xml_to_json_convert::xml_to_json(xml_input_str));
 }
 
 
@@ -1857,4 +1886,6 @@ extendr_module! {
     fn tuple_hash_v128;
     fn tuple_hash_v128_xof;
     fn tuple_hash_v256;
+    fn json_str_to_robj;
+    fn xml_to_robj;
 }
