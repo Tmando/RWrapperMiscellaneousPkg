@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">RWrapperMiscellaneousPkg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.8.0</span>
       </span>
     </div>
 
@@ -60,8 +60,29 @@
 <span class="r-in"><span><span class="st">                         &lt;ip_address&gt;223.10.217.33&lt;/ip_address&gt;</span></span></span>
 <span class="r-in"><span><span class="st">                    &lt;/record&gt;</span></span></span>
 <span class="r-in"><span><span class="st">       &lt;/dataset&gt;"</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="xml_to_json.html">xml_to_json</a></span><span class="op">(</span><span class="va">inputStr</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\"dataset\":{\"record\":{\"email\":\"nstanney0@domainmarket.com\",\"first_name\":\"Nerita\",\"gender\":\"Female\",\"id\":1,\"ip_address\":\"223.10.217.33\",\"last_name\":\"Stanney\"}}}"</span>
+<span class="r-in"><span><span class="fu">xml_to_robj</span><span class="op">(</span><span class="va">inputStr</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset$record</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset$record$gender</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Female"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset$record$last_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Stanney"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset$record$email</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "nstanney0@domainmarket.com"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset$record$id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset$record$ip_address</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "223.10.217.33"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dataset$record$first_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Nerita"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -18,7 +18,7 @@ return a HTTP Response"><!-- mathjax --><script src="https://cdnjs.cloudflare.co
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">RWrapperMiscellaneousPkg</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.7.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.8.0</span>
       </span>
     </div>
 
@@ -69,14 +69,37 @@ return a HTTP Response"><!-- mathjax --><script src="https://cdnjs.cloudflare.co
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">send_custom_http_request</span><span class="op">(</span><span class="st">'https://httpbin.org/get'</span>,<span class="st">'GET'</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">""</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://httpbin.org/get"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $response_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa137-28429854470dd653584540ba\"\n  }, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/get\"\n}\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa3ea-6d68c35d2925b5c7247beff4\"\n  }, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/get\"\n}\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-type`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 12:11:22 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$connection</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "keep-alive"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-length`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "280"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-origin`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$server</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gunicorn/19.9.0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $status_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "200 OK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://httpbin.org/get"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $version</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
@@ -84,42 +107,16 @@ return a HTTP Response"><!-- mathjax --><script src="https://cdnjs.cloudflare.co
 <span class="r-out co"><span class="r-pr">#&gt;</span> $cookies</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-type`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$connection</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "keep-alive"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 11:59:53 GMT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$server</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gunicorn/19.9.0"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-origin`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-length`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "280"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">send_custom_http_request</span><span class="op">(</span><span class="st">'https://httpbin.org/post'</span>,<span class="st">'POST'</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">""</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $version</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $response_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"data\": \"\", \n  \"files\": {}, \n  \"form\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa13a-341edcaf792a818064412aef\"\n  }, \n  \"json\": null, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/post\"\n}\n"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 12:00:25 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$server</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gunicorn/19.9.0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 12:11:47 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$connection</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "keep-alive"</span>
@@ -127,8 +124,8 @@ return a HTTP Response"><!-- mathjax --><script src="https://cdnjs.cloudflare.co
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-length`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "344"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$server</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gunicorn/19.9.0"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-origin`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
@@ -137,37 +134,34 @@ return a HTTP Response"><!-- mathjax --><script src="https://cdnjs.cloudflare.co
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://httpbin.org/post"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $response_text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"data\": \"\", \n  \"files\": {}, \n  \"form\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa3eb-28829c9632e0926636fe46ae\"\n  }, \n  \"json\": null, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/post\"\n}\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $cookies</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $status_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "200 OK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://httpbin.org/post"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">send_custom_http_request</span><span class="op">(</span><span class="st">'https://httpbin.org/get'</span>,<span class="st">'GET'</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">""</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $response_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa159-10aba9ad1ec63d2b78e9dd95\"\n  }, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/get\"\n}\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa404-1c7f1a583a0723b3765799c4\"\n  }, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/get\"\n}\n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://httpbin.org/get"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $cookies</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$connection</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "keep-alive"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 12:01:01 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-type`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 12:11:50 GMT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$server</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gunicorn/19.9.0"</span>
@@ -178,51 +172,57 @@ return a HTTP Response"><!-- mathjax --><script src="https://cdnjs.cloudflare.co
 <span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-length`</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "280"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-type`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $status_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "200 OK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cookies</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $version</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $status_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "200 OK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu">send_custom_http_request</span><span class="op">(</span><span class="st">'https://httpbin.org/post'</span>,<span class="st">'POST'</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">""</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-type`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-length`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "344"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$server</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gunicorn/19.9.0"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$connection</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "keep-alive"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 12:01:04 GMT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-origin`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $cookies</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> named list()</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $url</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://httpbin.org/post"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $version</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-origin`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "*"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$connection</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "keep-alive"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`access-control-allow-credentials`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "true"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-length`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "344"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$`content-type`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "application/json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sun, 09 Jul 2023 12:12:20 GMT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $headers$server</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "gunicorn/19.9.0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $response_text</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"data\": \"\", \n  \"files\": {}, \n  \"form\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa17e-120510ae3120647102de6935\"\n  }, \n  \"json\": null, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/post\"\n}\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "{\n  \"args\": {}, \n  \"data\": \"\", \n  \"files\": {}, \n  \"form\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"Content-Type\": \"application/x-www-form-urlencoded\", \n    \"Host\": \"httpbin.org\", \n    \"X-Amzn-Trace-Id\": \"Root=1-64aaa407-6e2a2fa91bca066b7cef79d4\"\n  }, \n  \"json\": null, \n  \"origin\": \"217.149.174.67\", \n  \"url\": \"https://httpbin.org/post\"\n}\n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $status_code</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "200 OK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $version</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
