@@ -222,4 +222,10 @@ reference:
   - min_matrix
   - mul_matrix
   - transpose_matrix
+- title: Json to Robj
+  contents:
+  - json_str_to_robj
+- title: XML to Robj
+  contents:
+  - xml_to_robj
   
