@@ -921,3 +921,25 @@ tuple_hash_v128_xof <- function(custom_string, input) .Call(wrap__tuple_hash_v12
 #' tuple_hash_v256(as.raw("Hallo Welt"),as.raw("Rust"))
 tuple_hash_v256 <- function(custom_string, input) .Call(wrap__tuple_hash_v256, custom_string, input)
 
+#' This function converts an json str to to an RList
+#' @export
+json_str_to_robj <- function(input_str) .Call(wrap__json_str_to_robj, input_str)
+
+#' convert an xml string to json
+#' @description This function converts an xml string to an robj
+#' @export
+#' @examples
+#' inputStr <- "<dataset>
+#'                    <record>
+#'                        <id>1</id>
+#'                         <first_name>Nerita</first_name>
+#'                          <last_name>Stanney</last_name>
+#'                          <email>nstanney0@domainmarket.com</email>
+#'                          <gender>Female</gender>
+#'                          <ip_address>223.10.217.33</ip_address>
+#'                     </record>
+#'        </dataset>"
+#' xml_to_robj(inputStr)
+#' 
+xml_to_robj <- function(xml_input_str) .Call(wrap__xml_to_robj, xml_input_str)
+
